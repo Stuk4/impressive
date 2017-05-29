@@ -1,5 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../impressive-elements/impressive-form.html">
+
 
 <dom-module id="impressive-app">
   <template>
@@ -9,14 +11,12 @@
       }
       .iron-flex{
         width: 50%;
-        background-color: #eee;
-        height: 100px;
         margin-right: 1em;
       }
     </style>
     <div class="layout horizontal">
       <impressive-colletion class="iron-flex"></impressive-colletion>
-      <impressive-form class="iron-flex"></impressive-form>
+      <impressive-form class="iron-flex" collection="{{collection}}"></impressive-form>
     </div>
   </template>
 
@@ -26,12 +26,20 @@
       is: 'impressive-app',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'impressive-app',
-        },
+        collection:{
+            type:Array,
+            value:function () {
+                return [];
+            }
+        }
       },
-
+        observers: [
+            "_collectionChanged(collection.*)"
+        ],
+      _collectionChanged : function () {
+        console.log("desde el observer")
+        console.log(this.collection)
+      }
     });
   </script>
 </dom-module>

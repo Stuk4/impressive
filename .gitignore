@@ -13,6 +13,9 @@
 !/test/sample/bower.json
 /npm-shrinkwrap.json
 
+
+.idea/
+
 # User-specific stuff:
 .idea/**/workspace.xml
 .idea/**/tasks.xml

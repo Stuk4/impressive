@@ -1,6 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 <link rel="import" href="../impressive-elements/impressive-form.html">
+<link rel="import" href="../impressive-elements/impressive-collection.html">
+
 
 
 <dom-module id="impressive-app">
@@ -14,17 +17,21 @@
         margin-right: 1em;
       }
     </style>
+
+    <!-- chekar documentacion del app-localstorage-->
+    <app-localstorage-document key="impressive.collection.tutorial" data="{{collection}}">
+    </app-localstorage-document>
+
     <div class="layout horizontal">
-      <impressive-colletion class="iron-flex"></impressive-colletion>
+      <impressive-collection class="iron-flex" collection="{{collection}}"></impressive-collection>
       <impressive-form class="iron-flex" collection="{{collection}}"></impressive-form>
     </div>
+
   </template>
 
   <script>
     Polymer({
-
       is: 'impressive-app',
-
       properties: {
         collection:{
             type:Array,
@@ -43,3 +50,4 @@
     });
   </script>
 </dom-module>
+
